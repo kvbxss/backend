@@ -23,6 +23,7 @@ import { ConnectOptions } from 'mongoose';
           maxIdleTimeMS: 30000,
           connectTimeoutMS: 10000,
           socketTimeoutMS: 45000,
+          dbName: configService.get('MONGODB_DB', 'test'),
         };
         return {
           uri,

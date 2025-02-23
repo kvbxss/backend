@@ -7,9 +7,12 @@ export class TaskType {
   id: string;
 
   @Field()
+  @MaxLength(30)
   title: string;
 
   @Field({ nullable: true })
+  @IsOptional()
+  @Length(30, 255)
   description?: string;
 
   @Field()
