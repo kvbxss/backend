@@ -17,9 +17,11 @@ export class TaskService {
   }
 
   async update(id: string, input: UpdateTaskInput): Promise<Task> {
-    const updatedTask = await this.taskModel.findByIdAndUpdate(id, input, {
-      new: true,
-    });
+    const updatedTask = await this.taskModel.findByIdAndUpdate(
+      id,
+      { completed: input.completed },
+      { new: true },
+    );
     if (!updatedTask) {
       throw new Error(`Task with id ${id} not found`);
     }
